@@ -1,10 +1,11 @@
-package com.webs.samirapplications.tipcalculator
-;
+package com.webs.samirapplications.tipcalculator;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Button;
+import android.widget.Toast;
 import android.view.View;
 public class TipCalculator extends Activity
 {
@@ -40,7 +41,13 @@ txttipamount=(TextView)findViewById(R.id.txttipamount);
 txttotal=(TextView)findViewById(R.id.txttotal);
 btncalculate = (Button)findViewById(R.id.btncalculate);
 btnreset = (Button)findViewById(R.id.btnreset);
-btncalculate.setOnClickListener(new Button.OnClickListener() { public void onClick (View v){ calculate(); }});
+
+btncalculate.setOnClickListener(new Button.OnClickListener() { 
+	public void onClick (View v)
+	{ calculate();} 
+	{Toast.makeText(TipCalculator.this, R.string.short_notification_text, Toast.LENGTH_SHORT).show();}
+	});
+
 btnreset.setOnClickListener(new Button.OnClickListener() { public void onClick (View v){ reset(); }});
 }
 private void calculate()
