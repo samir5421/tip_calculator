@@ -1,4 +1,4 @@
-package com.webs.samirapplications.tipcalculator;
+package com.webs.samirapplications.tip_calculator;
 
 import android.app.Activity;
 import android.os.Bundle;
