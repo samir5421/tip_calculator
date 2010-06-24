@@ -19,11 +19,11 @@ private Button btncalculate;
 private Button btnreset;
 private double billamount = 0; 
 private double percentage = 0;
-private double numofpeople=0;
+private double numofpeople= 0;
 private double tipamount = 0;
 private double totaltopay = 0;
 private double perperson = 0;
-/** Called when the activity is first created. */
+// Called when the activity is first created.
 @Override
 public void onCreate(Bundle savedInstanceState)
 {
