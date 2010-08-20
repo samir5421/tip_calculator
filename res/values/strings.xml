@@ -4,5 +4,6 @@
     <string name="app_name">Tip Calculator</string>
 
 <string name="short_notification_text">Tip Calculator</string>
+<string name="error">An error has occured. Please enter valid numbers.</string>
 
 </resources>
