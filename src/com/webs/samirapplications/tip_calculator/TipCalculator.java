@@ -46,6 +46,7 @@ public class TipCalculator extends Activity
 		btncalculate = (Button)findViewById(R.id.btncalculate);
 		btnreset = (Button)findViewById(R.id.btnreset);
 
+
 		btncalculate.setOnClickListener(new Button.OnClickListener() 
 		{ 
 			public void onClick (View v)
