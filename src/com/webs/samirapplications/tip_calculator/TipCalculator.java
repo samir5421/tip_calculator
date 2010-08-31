@@ -7,9 +7,7 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
 import android.view.View;
-import java.io.IOException;
 import java.lang.Double;
-import java.util.Formatter;
 
 public class TipCalculator extends Activity
 {
@@ -54,7 +52,12 @@ public class TipCalculator extends Activity
 			{Toast.makeText(TipCalculator.this, R.string.short_notification_text, Toast.LENGTH_SHORT).show();}
 		});
 
-		btnreset.setOnClickListener(new Button.OnClickListener() { public void onClick (View v){ reset(); }});
+		btnreset.setOnClickListener(new Button.OnClickListener() 
+		{ public void onClick (View v)
+			{
+				reset(); 
+			}
+		});
 	}
 	private void calculate()
 	{
