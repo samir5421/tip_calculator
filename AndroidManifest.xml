@@ -3,15 +3,26 @@
       package="com.webs.samirapplications.tip_calculator"
       android:installLocation = "auto" android:versionName="1.2" android:versionCode="8">
     <application android:icon="@drawable/icon" android:label="@string/app_name">
-        <activity android:name=".TipCalculator"
-                  android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
+	    <activity android:name=".TipCalculator"
+                  android:label="@string/app_name">
+        </activity>
+        
+        <!-- market licensing -->
+        <activity android:label="@string/app_name" android:name=".LicenseCheck"
+			android:theme="@android:style/Theme.Translucent.NoTitleBar">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<!-- end market licensing -->
+		
     </application>
     <uses-sdk android:minSdkVersion="3" />
+    
+    <!-- market licensing -->
+<uses-permission android:name="com.android.vending.CHECK_LICENSE" />
+<!-- end market licensing -->
 
 </manifest> 

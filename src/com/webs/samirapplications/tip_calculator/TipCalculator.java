@@ -9,6 +9,11 @@ import android.widget.Toast;
 import android.view.View;
 import java.lang.Double;
 
+import com.android.vending.licensing.AESObfuscator;
+import com.android.vending.licensing.LicenseChecker;
+import com.android.vending.licensing.LicenseCheckerCallback;
+import com.android.vending.licensing.ServerManagedPolicy;
+
 public class TipCalculator extends Activity
 {
 	private EditText txtbillamount;
