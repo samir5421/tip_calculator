@@ -79,9 +79,9 @@ public class TipCalculator extends Activity
 			tipamount=(billamount*percentage)/100;
 			totaltopay=billamount+tipamount;
 			perperson=totaltopay/numofpeople;
-			txttipamount.setText(Double.toString(tipamount));
-			txttotal.setText(Double.toString(totaltopay));
-			txtperperson.setText(Double.toString(perperson));
+			txttipamount.setText((String)String.format("$%.2f", tipamount));
+			txttotal.setText((String)String.format("$%.2f", totaltopay));
+			txtperperson.setText((String)String.format("$%.2f", perperson));
 
 		}
 	}
