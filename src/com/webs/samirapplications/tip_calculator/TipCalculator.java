@@ -7,12 +7,9 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
 import android.view.View;
+
 import java.lang.Double;
 
-import com.android.vending.licensing.AESObfuscator;
-import com.android.vending.licensing.LicenseChecker;
-import com.android.vending.licensing.LicenseCheckerCallback;
-import com.android.vending.licensing.ServerManagedPolicy;
 
 public class TipCalculator extends Activity
 {
@@ -26,11 +23,11 @@ public class TipCalculator extends Activity
 	private Button btnreset;
 	private double billamount = 0; 
 	private double percentage = 0;
-	private double numofpeople= 0;
+	private double numofpeople = 0;
 	private double tipamount = 0;
 	private double totaltopay = 0;
 	private double perperson = 0;
-	// Called when the activity is first created.
+
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
@@ -40,6 +37,7 @@ public class TipCalculator extends Activity
 	}
 	private void initControls()
 	{
+		try{
 		txtbillamount = (EditText)findViewById(R.id.txtbillamount);
 		txtpeople = (EditText)findViewById(R.id.txtpeople);
 		txtpercentage = (EditText)findViewById(R.id.txtpercentage);
@@ -53,7 +51,7 @@ public class TipCalculator extends Activity
 		btncalculate.setOnClickListener(new Button.OnClickListener() 
 		{ 
 			public void onClick (View v)
-			{ calculate();} 
+			{ test();} 
 			{Toast.makeText(TipCalculator.this, R.string.short_notification_text, Toast.LENGTH_SHORT).show();}
 		});
 
@@ -63,11 +61,31 @@ public class TipCalculator extends Activity
 				reset(); 
 			}
 		});
+		}
+		catch (Exception e){
+			{Toast.makeText(TipCalculator.this, R.string.error, Toast.LENGTH_LONG).show();}	
+		}
 	}
-	private void calculate()
+	private void test()
 	{
-		
-		if (Double.parseDouble(txtbillamount.getText().toString()) == Double.NaN && Double.parseDouble(txtpercentage.getText().toString()) == Double.NaN && Double.parseDouble(txtpeople.getText().toString()) == Double.NaN)
+
+			try{
+			billamount=Double.parseDouble(txtbillamount.getText().toString());
+			percentage=Double.parseDouble(txtpercentage.getText().toString());
+			numofpeople=Double.parseDouble(txtpeople.getText().toString());
+			doCalc();
+			}
+			catch(NumberFormatException e){
+				{Toast.makeText(TipCalculator.this, R.string.error, Toast.LENGTH_LONG).show();}	
+			}
+
+		}
+	
+	public void doCalc(){
+		if(txtbillamount.getText() == null || txtpercentage.getText() == null || txtpeople.getText() == null){
+			{Toast.makeText(TipCalculator.this, R.string.error, Toast.LENGTH_LONG).show();}
+		}
+		else if (Double.parseDouble(txtbillamount.getText().toString()) == Double.NaN && Double.parseDouble(txtpercentage.getText().toString()) == Double.NaN && Double.parseDouble(txtpeople.getText().toString()) == Double.NaN)
 		{
 			{Toast.makeText(TipCalculator.this, R.string.error, Toast.LENGTH_LONG).show();}
 		}
@@ -77,22 +95,17 @@ public class TipCalculator extends Activity
 		}
 		else
 		{
-
-			billamount=Double.parseDouble(txtbillamount.getText().toString());
-			percentage=Double.parseDouble(txtpercentage.getText().toString());
-			numofpeople=Double.parseDouble(txtpeople.getText().toString());
-			tipamount=(billamount*percentage)/100;
-			totaltopay=billamount+tipamount;
-			perperson=totaltopay/numofpeople;
-			txttipamount.setText((String)String.format("$%.2f", tipamount));
-			txttotal.setText((String)String.format("$%.2f", totaltopay));
-			txtperperson.setText((String)String.format("$%.2f", perperson));
-
+		tipamount=(billamount*percentage)/100;
+		totaltopay=billamount+tipamount;
+		perperson=totaltopay/numofpeople;
+		txttipamount.setText((String)String.format("$%.2f", tipamount));
+		txttotal.setText((String)String.format("$%.2f", totaltopay));
+		txtperperson.setText((String)String.format("$%.2f", perperson));
 		}
 	}
 
 	private void reset()
-	{
+	{{Toast.makeText(TipCalculator.this, R.string.error, Toast.LENGTH_LONG).show();}
 		txtbillamount.setText("");
 		txtpeople.setText("");
 		txtpercentage.setText("");
