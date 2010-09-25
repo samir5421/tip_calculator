@@ -52,7 +52,6 @@ public class TipCalculator extends Activity
 		{ 
 			public void onClick (View v)
 			{ test();} 
-			{Toast.makeText(TipCalculator.this, R.string.short_notification_text, Toast.LENGTH_SHORT).show();}
 		});
 
 		btnreset.setOnClickListener(new Button.OnClickListener() 
@@ -63,7 +62,7 @@ public class TipCalculator extends Activity
 		});
 		}
 		catch (Exception e){
-			{Toast.makeText(TipCalculator.this, R.string.error, Toast.LENGTH_LONG).show();}	
+			error();
 		}
 	}
 	private void test()
@@ -76,22 +75,22 @@ public class TipCalculator extends Activity
 			doCalc();
 			}
 			catch(NumberFormatException e){
-				{Toast.makeText(TipCalculator.this, R.string.error, Toast.LENGTH_LONG).show();}	
+				error();	
 			}
 
 		}
 	
 	public void doCalc(){
 		if(txtbillamount.getText() == null || txtpercentage.getText() == null || txtpeople.getText() == null){
-			{Toast.makeText(TipCalculator.this, R.string.error, Toast.LENGTH_LONG).show();}
+			error();
 		}
 		else if (Double.parseDouble(txtbillamount.getText().toString()) == Double.NaN && Double.parseDouble(txtpercentage.getText().toString()) == Double.NaN && Double.parseDouble(txtpeople.getText().toString()) == Double.NaN)
 		{
-			{Toast.makeText(TipCalculator.this, R.string.error, Toast.LENGTH_LONG).show();}
+			error();
 		}
 		else if (Double.parseDouble(txtbillamount.getText().toString()) <= 0 || Double.parseDouble(txtpercentage.getText().toString()) <= 0 || Double.parseDouble(txtpeople.getText().toString()) <= 0)
 		{
-			{Toast.makeText(TipCalculator.this, R.string.error, Toast.LENGTH_LONG).show();}	
+			error();
 		}
 		else
 		{
@@ -104,13 +103,15 @@ public class TipCalculator extends Activity
 		}
 	}
 
-	private void reset()
-	{{Toast.makeText(TipCalculator.this, R.string.error, Toast.LENGTH_LONG).show();}
+	private void reset(){
 		txtbillamount.setText("");
 		txtpeople.setText("");
 		txtpercentage.setText("");
 		txtperperson.setText("");
 		txttipamount.setText("");
 		txttotal.setText("");
+	}
+	public void error(){
+		{Toast.makeText(TipCalculator.this, R.string.error, Toast.LENGTH_LONG).show();}	
 	}
 }
