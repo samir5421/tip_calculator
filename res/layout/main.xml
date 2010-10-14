@@ -83,7 +83,8 @@ android:text="50"
 android:textSize="18sp"
 android:layout_x="225px"
 android:layout_y="32px" 
-android:layout_height="wrap_content">
+android:layout_height="wrap_content"
+android:inputType="numberDecimal">
 </EditText>
 <EditText
 android:id="@+id/txtpercentage"
@@ -92,7 +93,8 @@ android:text="15"
 android:textSize="18sp"
 android:layout_x="225px"
 android:layout_y="102px"
-android:layout_height="wrap_content">
+android:layout_height="wrap_content"
+android:inputType="numberDecimal">
 </EditText>
 <EditText
 android:id="@+id/txtpeople"
@@ -101,7 +103,8 @@ android:text="1"
 android:textSize="18sp"
 android:layout_x="225px"
 android:layout_y="172px"
-android:layout_height="wrap_content">
+android:layout_height="wrap_content"
+android:inputType="numberDecimal">
 </EditText>
 <TextView
 android:id="@+id/txttipamount"
